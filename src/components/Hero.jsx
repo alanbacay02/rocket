@@ -9,8 +9,8 @@ const Hero = () => {
       <div className='w-full h-full max-w-[1440px] flex justify-center items-center mx-auto'>
         <div className='grid h-full grid-cols-2 my-auto px-6'>
           <div className='flex flex-col justify-center text-default'>
-            <h1 className='text-6xl font-bold'>Launch Your <span className='text-default'>Buisness</span> To <span className='relative'>Cloud Excellence<div className='absolute -z-50 w-full h-[65%] -left-2 -bottom-2 bg-secondary' /></span>.</h1>
-            <p className='mt-10 text-2xl'>Supercharge your buisness with cutting-edge data and technology services. Harness the power of data for smarter decisions and accelerated growth.</p>
+            <h1 className='text-6xl font-bold'>Unleash the Power of the Cloud with Orion.</h1>
+            <p className='mt-10 text-2xl pr-5'>At Orion, we're not just in the buisness of providing cloud solutions. We're in the buisness of transforming your digital dreams into reality. Harness the limitless potential of Cloud now.</p>
             <div className='flex flex-row justify-start gap-5 my-11 text-lg text-default font-medium'>
               <button className='hero-button bg-primary px-7 py-3  transition-all duration-300'>Get Started</button>
               <button
@@ -18,8 +18,8 @@ const Hero = () => {
               >How It Works</button>
             </div>
           </div>
-          <div className='flex items-center justify-center'>
-            <img src={HeroImg} alt='heroImg' className=' object-cover'/>
+          <div className='flex items-center'>
+            <img src={HeroImg} alt='heroImg' loading='lazy' className='max-h-[66%] w-auto object-cover'/>
           </div>
         </div>
       
@@ -28,9 +28,10 @@ const Hero = () => {
           src={HeroBg}
           alt='Hero_Background'
           className='absolute inset-0 w-full h-full -z-50 object-cover'
+          loading='lazy'
         />
 
-        <div className='absolute bottom-6 left-0 right-0 w-full max-w-[1440px] h-fit mx-auto z-20'>
+        <div className='absolute bottom-7 left-0 right-0 w-full max-w-[1440px] h-fit mx-auto z-20'>
           <CompanyLogos />
         </div>
       </div>
