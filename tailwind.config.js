@@ -10,11 +10,11 @@ module.exports = {
         // primary: '#1D2A8C',
         // secondary: '#2B2B31',
         // accent: '#FDE217',
-        default: '#FAF7E0',
-        primary: '#112aea',
+        default: '#FBFBFE',
+        primary: '#2434b1',
         primaryText: '#919eff',
         secondary: '#1D1B1D',
-        accent: '#F41AF4',
+        accent: '#ee3795',
         background: '#0E0F15'
       }
     },

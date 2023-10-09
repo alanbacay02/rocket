@@ -4,11 +4,11 @@
 
 /* Custom CSS Styling */
 :root {
-  --default: #FFFFFF;
-  --primary: #112aea;
+  --default: #FBFBFE;
+  --primary: #2434b1;
   --primary-text: #919eff;
-  --secondary: #2B2B31;
-  --accent: #ff00b7;
+  --secondary: #1D1B1D;
+  --accent: #ee3795;
   --background: #0E0F15;
 }
 
@@ -32,4 +32,18 @@ body {
 
 .embla__slide {
   flex: 0 0 100%;
+}
+
+.card-h2-title::before {
+  content: "";
+    height: 80%;
+    width: 100%;
+    display: block;
+    z-index: -5;
+    opacity: 60%;
+    position: absolute;
+    bottom: -7px;
+    left: 0;
+    right: 0;
+    background: linear-gradient(180deg,transparent 50%,var(--accent) 50%);
 }
