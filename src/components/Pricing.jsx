@@ -58,8 +58,8 @@ const Pricing = () => {
           {PACKAGE_TITLES.map((item, index) => {
             return (
               <div key={index} className='relative hover:cursor-pointer' onClick={() => {handleClick(item.key)}}>
-                <h2 className={`${packageState[item.key] ? 'text-accent' : ''}`}>{item.title}</h2>
-                <div className={`absolute -bottom-5 h-1 w-full bg-accent ${!packageState[item.key] ? 'hidden' : ''}`} />
+                <h2 className={`${packageState[item.key] ? 'text-primaryText' : ''}`}>{item.title}</h2>
+                <div className={`absolute -bottom-5 h-1 w-full bg-primaryText ${!packageState[item.key] ? 'hidden' : ''}`} />
               </div>
             )
           })}

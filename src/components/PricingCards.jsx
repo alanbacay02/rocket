@@ -48,26 +48,37 @@ const PricingCards = () => {
       <div className='w-full max-w-[1440px]'>
 
       {/* START OF GRID CONTAINER */}
-        <div className='grid grid-cols-3 gap-10'>
+        <div className='grid grid-cols-3 gap-10 items-center'>
           {/* START OF CARDS */}
           {CARD_CONTENT.map((item, index) => {
             return (
-              <div key={index} className='flex flex-col py-6 px-9 h-fit bg-secondary text-default'>
-                <h2>{item.packageName}</h2>
-                <h1>{item.price}</h1>
-                <p>Per Month</p>
-                <p>{item.description}</p>
-                <div className='w-full h-[1px] bg-gray-600' />
+              <div 
+                key={index}
+                className={`flex flex-col py-10 px-4 h-fit text-center rounded-xl bg-secondary text-default ${item.highlighted ? 'highlighted-pricing-card py-12' : ''}`}
+              >
+                <h2 className={`font-medium text-3xl mb-10 ${item.highlighted ? 'text-primaryText' :  ''}`}>
+                  {item.packageName}
+                </h2>
+                <h1 className={`font-bold text-7xl ${item.highlighted ? 'text-primaryText' : ''}`}>{item.price}</h1>
+                <p className='mb-5'>Per Month</p>
+                <p className='px-7 mb-5'>{item.description}</p>
+                <div className='w-full h-[1px] mb-5 bg-gray-600' />
                 {/* Start of Package Features */}
-                {item.features.map((feature, index) => {
-                  return (
+                <div  className='flex flex-col px-7 text-left'>
+                  {item.features.map((feature, index) => {
+                    return (
                     <p key={index}>{feature}</p>
-                  )
-                })}
-                <a href='/#'>See all features</a>
+                    )
+                  })}
+                  <a href='/#' className='w-fit font-medium text-accent'>See all features</a>
+                </div>
                 {/* End of Package Features */}
-                <div className='w-full h-[1px] bg-gray-600' />
-                <button>Get a Free Trial</button>
+                <div className='w-full h-[1px] mt-5 bg-gray-600' />
+                <button
+                  onClick={() => {}}
+                  className='w-fit mt-10 mx-auto px-8 py-3 font-medium text-white bg-primary'>
+                  Get a Free Trial
+                </button>
               </div>
             )
           })}
