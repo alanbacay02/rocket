@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PricingCards from './PricingCards'
 
 // Define the initial state for the package options.
 const initialState = {
@@ -24,39 +25,6 @@ const PACKAGE_TITLES = [
 ]
 
 const Pricing = () => {
-  /*
-  const [standardActive, setStandardActive] = useState(true)
-  const [agencyActive, setAgencyActive] = useState(false)
-  const [customActive, setCustomActive] = useState(false)
-
-  const handleClick = (target) => {
-    switch (target) {
-      case 'standard':
-        setStandardActive(true)
-        setAgencyActive(false)
-        setCustomActive(false)
-        break
-      
-      case 'agency':
-        setStandardActive(false)
-        setAgencyActive(true)
-        setCustomActive(false)
-        break
-
-      case 'custom':
-        setStandardActive(false)
-        setAgencyActive(false)
-        setCustomActive(true)
-        break
-
-      default:
-        setStandardActive(true)
-        setAgencyActive(false)
-        setCustomActive(false)
-        break
-    }
-  }
-  */
 
   // Initialize the package state with the initial state.
   const [packageState, setPackageState] = useState(initialState)
@@ -95,10 +63,10 @@ const Pricing = () => {
               </div>
             )
           })}
-          
           <div className='absolute bottom-0 h-[1px] w-full bg-gray-600' />
         </div>
-
+        
+        <PricingCards />
       </div>
     </div>
   )
