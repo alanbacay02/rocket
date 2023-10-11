@@ -47,26 +47,26 @@ const Pricing = () => {
 
   return (
     <div className='w-full pb-16'>
-      <div className='w-full max-w-[1440px] mx-auto px-6'>
+      <div className='w-full max-w-[1440px] mx-auto'>
 
-        <div className='flex flex-col justify-center items-center text-default'>
+        <div className='flex flex-col justify-center items-center mx-6 text-default'>
           <h1 className='font-bold text-4xl mb-7'>Pricing</h1>
           <p className='text-lg text-center max-w-[800px]'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore voluptates, minus sapiente voluptatem reiciendis dicta nisi ea repellendus. Quod modi expedita, ipsam suscipit accusantium in pariatur saepe. Corrupti, maxime repudiandae!</p>
         </div>
 
-        <div className='relative flex flex-row justify-center items-center gap-36 mt-12 pb-5 text-default font-bold text-lg'>
+        <div className='relative flex flex-row justify-center items-center gap-36 mt-12 mx-6 pb-5 text-default font-bold text-lg'>
           {PACKAGE_TITLES.map((item, index) => {
             return (
               <div key={index} className='relative hover:cursor-pointer' onClick={() => {handleClick(item.key)}}>
-                <h2 className={`${packageState[item.key] ? 'text-primaryText' : ''}`}>{item.title}</h2>
-                <div className={`absolute -bottom-5 h-1 w-full bg-primaryText ${!packageState[item.key] ? 'hidden' : ''}`} />
+                <h2 className={`${packageState[item.key] ? 'text-primaryText' : ''} transition-colors duration-400`}>{item.title}</h2>
+                <div className={`absolute -bottom-5 h-1 w-full bg-primaryText ${!packageState[item.key] ? 'opacity-0' : 'opacity-100'} transition-opacity duration-400`} />
               </div>
             )
           })}
           <div className='absolute bottom-0 h-[1px] w-full bg-gray-600' />
         </div>
         
-        <PricingCards />
+        <PricingCards packageState={packageState} />
       </div>
     </div>
   )
