@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaArrowRightLong } from 'react-icons/fa6'
 import { ImCheckmark } from 'react-icons/im'
+import useEmblaCarousel from 'embla-carousel-react'
 
 const STANDARD_CONTENT = [
   {
@@ -123,7 +124,7 @@ const CUSTOM_CONTENT = [
   },
   {
     packageName: 'Custom',
-    price: '$1600+',
+    price: '$1,599+',
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, repellat maiores officia fugit delectus officiis adipisci sunt.',
     features: [
       'Lorem ipsum dolor sit amet.',
@@ -134,6 +135,29 @@ const CUSTOM_CONTENT = [
     ],
     highlighted: true,
     buttonContent: 'Get a Quote'
+  },
+]
+
+// Define the initial state for the package options.
+const initialState = {
+  standardActive: true,
+  agencyActive: false,
+  customActive: false
+}
+
+// Creates an array object `PACKAGE_TITLES`.
+const PACKAGE_TITLES = [
+  {
+    title: 'STANDARD',
+    key: 'standardActive'
+  },
+  {
+    title: 'AGENCY',
+    key: 'agencyActive'
+  },
+  {
+    title: 'CUSTOM / ENTERPRISE',
+    key: 'customActive'
   },
 ]
 
@@ -148,7 +172,7 @@ const Cards = ({ cardContentObj }) => {
           return (
             <div 
               key={index}
-              className={`flex flex-col py-10 px-4 h-min text-center rounded-xl bg-secondary text-default ${item.highlighted ? 'highlighted-pricing-card py-12' : ''}`}
+              className={`flex flex-col py-10 px-4 mx-auto h-min max-w-[450px] text-center rounded-xl bg-secondary text-default ${item.highlighted ? 'highlighted-pricing-card py-12' : ''}`}
             >
               <h2 className={`font-medium text-3xl mb-10 ${item.highlighted ? 'text-primaryText' :  ''}`}>
                 {item.packageName}
@@ -194,21 +218,68 @@ const Cards = ({ cardContentObj }) => {
   )
 }
 
+const PricingCarouselControls = ({ onControlClick }) => {
+  // Initialize the package state with the initial state.
+  const [packageState, setPackageState] = useState(initialState)
 
-const PricingCards = ({ packageState }) => {
+  // Handle clicks on package bars.
+  const handleClick = (target) => {
+    // Create a copy of the current state.
+    let prevPackageState = {...packageState}
+    // Find the previously active package by searching for a key with a 'true' value.
+    let prevActiveKey = Object.keys(prevPackageState).find(key => prevPackageState[key] === true)
+    
+    // Update the state to reflect the new active package.
+    setPackageState((prevState) => ({
+      ...prevState, // Preserve the previous state.
+      [prevActiveKey]: false, // Deactivate the previously active package.
+      [target]: true // Activate the selected package.
+    }))
+  }
+
   return (
-    <div className='relative w-full py-12 overflow-x-hidden overflow-y-clip'>
-      <div className={`transition-opacity duration-600 ${packageState.standardActive ? 'static opacity-100' : 'opacity-0 absolute top-0 left-[1600px]'}`}>
-        <Cards cardContentObj={STANDARD_CONTENT} />
-      </div>
-      <div className={`transition-opacity duration-600 ${packageState.agencyActive ? 'static opacity-100' : 'opacity-0 absolute top-0 left-[1600px]'}`}>
-        <Cards cardContentObj={AGENCY_CONTENT} />
-      </div>
-      <div className={`transition-opacity duration-600 ${packageState.customActive ? 'static opacity-100' : 'opacity-0 absolute top-0 left-[1600px]'}`}>
-        <Cards cardContentObj={CUSTOM_CONTENT} />
+    <div className='relative flex flex-row justify-center items-center gap-36 mt-12 mx-6 pb-5 text-default font-bold text-lg'>
+    {PACKAGE_TITLES.map((item, index) => {
+      let isSelected = packageState[item.key]
+      return (
+        <div key={index} className='relative hover:cursor-pointer' onClick={() => {handleClick(item.key); onControlClick(index);}}>
+          <h2 className={`${isSelected ? 'text-primaryText' : ''} transition-colors duration-600 select-none`}>{item.title}</h2>
+          <div className={`absolute -bottom-5 h-1 w-full bg-primaryText transition-opacity duration-600 ${isSelected ? 'opacity-100' : 'opacity-0'}`} />
+        </div>
+      )
+    })}
+    <div className='absolute bottom-0 h-[1px] w-full bg-gray-600' />
+  </div>
+  )
+}
+
+const PricingCarousel = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, watchDrag: false, })
+
+  const onControlClick = (index) => {
+    emblaApi.scrollTo(index)
+  }
+
+  return (
+    <div className=''>
+
+      <PricingCarouselControls onControlClick={onControlClick} />
+
+      <div className="embla overflow-hidden py-14" ref={emblaRef}>
+        <div className="embla__container flex">
+          <div className="embla__slide">
+            <Cards cardContentObj={STANDARD_CONTENT} />
+          </div>
+          <div className="embla__slide">
+            <Cards cardContentObj={AGENCY_CONTENT} />
+          </div>
+          <div className="embla__slide">
+            <Cards cardContentObj={CUSTOM_CONTENT} />
+          </div>
+        </div>
       </div>
     </div>
   )
 }
 
-export default PricingCards
+export default PricingCarousel
