@@ -33,7 +33,7 @@ const Security = () => {
             <img src={serverImg} alt='serverImg' />
           </div>
           <div className='flex flex-col max-w-[600px] mx-auto items-center justify-center gap-5 px-6 text-default text-xl'>
-            <h2 className='text-3xl font-medium'>Putting Security First to Safeguard What Matters Most</h2>
+            <h2 className='text-3xl font-medium'>We Put Security First to Safeguard What Matters Most</h2>
             {CARD_CONTENT.map((item, index) => {
               return (
                 <div className='flex flex-row items-center px-6 py-5 gap-6 bg-[#003097] shadow-xl rounded-xl'>

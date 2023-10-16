@@ -6,8 +6,7 @@ const Reviews = () => {
     <div className='w-full py-12'>
       <div className='w-full max-w-[1440px] mx-auto'>
         <div className='flex flex-col justify-center items-center text-default'>
-          <h1 className='font-bold text-4xl'>Testimonials</h1>
-          <p className='text-2xl mt-4'>What other people say about us</p>
+          <h1 className='font-bold text-4xl mb-2'>What Our Customers Say</h1>
         </div>
 
         <ReviewCarousel />
