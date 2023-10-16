@@ -1,5 +1,6 @@
 import React from 'react'
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
+import { BsChevronLeft, BsChevronRight } from 'react-icons/bs'
 import useEmblaCarousel from 'embla-carousel-react'
 import { Logo5 } from '../svg-components/SvgLogos'
 
@@ -74,10 +75,14 @@ const ReviewCard = ({ imgSrc, reviewContent, reviewerName, reviewerOccupation, r
 
 
 const ReviewCarousel = () => {
-  const [emblaRef] = useEmblaCarousel({ loop: true, watchDrag: true, })
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, watchDrag: true, })
 
   return (
-    <div className="embla overflow-hidden py-14" ref={emblaRef}>
+    <div className='flex flex-row items-center justify-center gap-8'>
+      <button className='review-carousel-prev text-primaryText text-7xl active:scale-90' onClick={() => {emblaApi.scrollPrev()}}>
+        <BsChevronLeft />
+      </button>
+      <div className="embla overflow-hidden max-w-[800px] py-14" ref={emblaRef}>
         <div className="embla__container flex">
           {REVIEW_CONTENT.map((item, index) => {
             return (
@@ -94,6 +99,10 @@ const ReviewCarousel = () => {
           })}
         </div>
       </div>
+      <button className='review-carousel-next text-primaryText text-7xl active:scale-90' onClick={() => {emblaApi.scrollNext()}}>
+        <BsChevronRight />
+      </button>
+    </div>
   )
 }
 
