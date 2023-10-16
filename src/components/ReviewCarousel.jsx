@@ -3,34 +3,42 @@ import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs'
 import useEmblaCarousel from 'embla-carousel-react'
 import { Logo5 } from '../svg-components/SvgLogos'
+import AllanRevImg from '../assets/Allan_Rev_Img.png'
+import AmandaRevImg from '../assets/Amanda_Rev_Img.png'
+import JohnRevImg from '../assets/John_Rev_Img.png'
+import JamesRevImg from '../assets/James_Rev_Img.png'
 
 const REVIEW_CONTENT = [
   {
     reviewerName: 'Allan Prosser',
     reviewerOccupation: 'CEO of Tradus',
     reviewContent: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam officiis ea odit, at iusto reiciendis, autem deserunt sit perspiciatis ducimus voluptatum exercitationem voluptates veniam beatae possimus dignissimos incidunt voluptate molestias non! Repudiandae perspiciatis veritatis officia suscipit voluptatibus libero delectus.',
-    imgOnFile: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
+    imgOnFile: AllanRevImg,
+    imgCredits: 'https://unsplash.com/photos/pAtA8xe_iVM',
     rating: 4
   },
   {
     reviewerName: 'John Diedrich',
     reviewerOccupation: 'React Developer at Dteche',
     reviewContent: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam officiis ea odit, at iusto reiciendis, autem deserunt sit perspiciatis ducimus voluptatum exercitationem voluptates veniam beatae possimus dignissimos incidunt voluptate molestias non! Repudiandae perspiciatis veritatis officia suscipit voluptatibus libero delectus.',
-    imgOnFile: 'https://images.unsplash.com/photo-1600180758890-6b94519a8ba6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    imgOnFile: JohnRevImg,
+    imgCredits: 'https://unsplash.com/photos/yIOViGQmjJ4',
     rating: 5
   },
   {
     reviewerName: 'James Whitten',
     reviewerOccupation: 'Senior UI/UX Engineer at Maketech',
     reviewContent: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa nihil ut in maxime harum, hic fuga cumque, id, architecto quod amet tempora nemo illo placeat voluptas dolore porro quo.',
-    imgOnFile: 'https://images.unsplash.com/photo-1544168190-79c17527004f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1976&q=80',
+    imgOnFile: JamesRevImg,
+    imgCredits: 'https://unsplash.com/photos/WC7KIHo13Fc',
     rating: 4
   },
   {
     reviewerName: 'Amanda Mullen',
     reviewerOccupation: 'Chief Technology Officer At Nextec',
     reviewContent: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam officiis ea odit, at iusto reiciendis, autem deserunt sit perspiciatis ducimus voluptatum exercitationem voluptates veniam beatae possimus dignissimos incidunt voluptate molestias non! Repudiandae perspiciatis veritatis officia suscipit voluptatibus libero delectus.',
-    imgOnFile: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1976&q=80',
+    imgOnFile: AmandaRevImg,
+    imgCredits: 'https://unsplash.com/photos/0Zx1bDv5BNY',
     rating: 5
   },
 ]
@@ -51,7 +59,7 @@ const ReviewCard = ({ imgSrc, reviewContent, reviewerName, reviewerOccupation, r
 
   return (
     <div className='flex flex-col justify-center items-center mx-auto w-[700px] text-white'>
-      <img src={imgSrc} alt='Reviewer_Image' className='w-36 h-36 rounded-full object-cover object-top mb-3' />
+      <img src={imgSrc} alt='Reviewer_Image' className='w-36 h-36 rounded-full object-cover mb-3' />
       <div className='flex flex-row text-3xl mb-8'>
         {getStars(rating)}
       </div>
