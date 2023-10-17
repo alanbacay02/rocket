@@ -11,7 +11,7 @@ const FAQ_CONTENT = [
     answer: 'To get started, simply navigate to our "Get Started" page and select the package that best fits your needs. You can then follow the easy steps to set up your account and access our cloud services.'
   },
   {
-    question: 'What are the key benefits of using your cloud solutions for startups and established companies?',
+    question: 'What are the key benefits of using your cloud solutions for companies?',
     answer: 'For startups, our cloud solutions provide cost-effective and scalable infrastructure, helping you grow without the burden of extensive upfront investments. Established companies benefit from enhanced security, reliability, and the ability to optimize their operations for maximum efficiency.'
   },
   {
@@ -33,9 +33,9 @@ const Faq = () => {
   return (
     <div className='w-full py-14'>
       <div className='w-full max-w-[1440px] mx-auto'>
-        <div className='grid grid-cols-3'>
+        <div className='grid grid-cols-3 px-6'>
           <div className='col-span-1 text-default'>
-            <h1 className='text-4xl font-bold'>FAQ</h1>
+            <h1 className='text-6xl font-bold'>FAQ</h1>
             <p className='text-lg'>Got Questions?</p>
           </div>
           <div className='col-span-2 text-default'>
