@@ -59,7 +59,7 @@ const ReviewCard = ({ imgSrc, reviewContent, reviewerName, reviewerOccupation, r
 
   return (
     <div className='flex flex-col justify-center items-center mx-auto w-[700px] text-white'>
-      <img src={imgSrc} alt='Reviewer_Image' className='w-36 h-36 rounded-full object-cover mb-3' />
+      <img src={imgSrc} alt='Reviewer_Image' loading='lazy' className='w-36 h-36 rounded-full object-cover mb-3' />
       <div className='flex flex-row text-3xl mb-8'>
         {getStars(rating)}
       </div>
