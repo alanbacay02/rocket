@@ -1,4 +1,5 @@
 import React from 'react'
+import { FaFacebookSquare, FaTwitterSquare, FaLinkedin, FaGithubSquare, FaDribbbleSquare } from 'react-icons/fa'
 import { Logo5 } from '../svg-components/SvgLogos'
 
 const Footer = () => {
@@ -19,16 +20,16 @@ const Footer = () => {
           <div className='flex flex-col'>
             <h3 className='font-medium text-gray-400 text-xl mb-4'>Product</h3>
             <ul className='flex flex-col gap-2 text-default'>
-              <li>
+              <li className='hover:underline max-w-fit'>
                 <a href='/#'>Platform</a>
               </li>
-              <li>
+              <li className='hover:underline max-w-fit'>
                 <a href='/#'>Pricing</a>
               </li>
-              <li>
+              <li className='hover:underline max-w-fit'>
                 <a href='/#'>API</a>
               </li>
-              <li>
+              <li className='hover:underline max-w-fit'>
                 <a href='/#'>Dashboard</a>
               </li>
             </ul>
@@ -36,27 +37,38 @@ const Footer = () => {
           <div className='flex flex-col'>
             <h3 className='font-medium text-gray-400 text-xl mb-4'>Resources</h3>
             <ul className='flex flex-col gap-2 text-default'>
-              <li>
+              <li className='hover:underline max-w-fit'>
                 <a href='/#'>Documentation</a>
               </li>
-              <li>
+              <li className='hover:underline max-w-fit'>
                 <a href='/#'>Blogs</a>
               </li>
-              <li>
+              <li className='hover:underline max-w-fit'>
                 <a href='/#'>Jobs</a>
               </li>
-              <li>
+              <li className='hover:underline max-w-fit'>
                 <a href='/#'>Changelong</a>
               </li>
             </ul>
           </div>
           <div className='flex flex-col'>
             <h3 className='text-gray-400 font-medium mb-4 text-xl'>Socials</h3>
-            <div className='flex flex-row gap-5 text-default mb-5'>
-              <button>fb</button>
-              <button>twt</button>
-              <button>Lkin</button>
-              <button>Gh</button>
+            <div className='flex flex-row gap-5 text-default text-3xl mb-5'>
+              <button className='hover:scale-110' onClick={() => {}}>
+                <FaFacebookSquare />
+              </button>
+              <button className='hover:scale-110' onClick={() => {}}>
+                <FaTwitterSquare />
+              </button>
+              <button className='hover:scale-110' onClick={() => {}}>
+                <FaLinkedin />
+              </button>
+              <button className='hover:scale-110' onClick={() => {}}>
+                <FaGithubSquare />
+              </button>
+              <button className='hover:scale-110' onClick={() => {}}>
+                <FaDribbbleSquare />
+              </button>
             </div>
             <h3 className='text-gray-400 font-medium mb-4 text-xl'>Email</h3>
             <a href='/#' className='text-accent hover:underline hover:underline-offset-2 text-lg font-medium'>info@mycompany.io</a>
