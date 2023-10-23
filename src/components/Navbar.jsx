@@ -1,5 +1,6 @@
 import React from 'react'
 import { Logo5, Pin } from '../svg-components/SvgLogos'
+import { RxHamburgerMenu } from 'react-icons/rx'
 
 const NAVBAR_ITEMS = [
   {
@@ -30,17 +31,17 @@ const NAVBAR_ITEMS = [
 
 const Navbar = () => {
   return (
-    <div className='absolute inset-0 h-fit w-full py-6 border-b border-gray-800 z-50'>
-      <div className='w-full max-w-[1440px] px-6 mx-auto flex flex-row justify-between items-center'>
+    <div className='absolute inset-0 h-fit w-full py-4 md:py-6 border-b border-gray-800 z-50'>
+      <div className='w-full max-w-[1440px] px-2 sm:px-4 md:px-6 mx-auto flex flex-row justify-between items-center'>
         <a href='/#' className='hover:cursor-pointer'>
-          <div className='flex flex-row justify-center items-center'>
-            <div className='w-11 h-11 fill-primary'>
+          <div className='flex flex-row justify-center items-center gap-0.5'>
+            <div className='w-7 h-7 md:w-11 md:h-11 mt-1 fill-primary'>
               <Logo5 />
             </div>
-            <h3 className='text-default font-bold text-3xl'>Orion</h3>
+            <h3 className='text-default font-bold text-xl md:text-3xl'>Orion</h3>
           </div>
         </a>
-        <div>
+        <div className='hidden md:block'>
           <ul className='flex flex-row gap-5 text-default text-lg overflow-clip'>
             {NAVBAR_ITEMS.map((item, index) => {
               return (
@@ -53,6 +54,9 @@ const Navbar = () => {
               )
             })}
           </ul>
+        </div>
+        <div className='md:hidden text-default text-2xl mr-2'>
+          <RxHamburgerMenu />
         </div>
       </div>
     </div>
