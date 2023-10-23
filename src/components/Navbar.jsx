@@ -49,7 +49,7 @@ const Navbar = () => {
           </div>
         </a>
         <div className='hidden md:block'>
-          <ul className='flex flex-row gap-5 text-default text-lg overflow-clip'>
+          <ul className='flex flex-row gap-5 text-default font-medium text-lg overflow-clip'>
             {NAVBAR_ITEMS.map((item, index) => {
               return (
                 <li className='relative group flex flex-row items-center gap-1 pl-6'>
@@ -66,7 +66,7 @@ const Navbar = () => {
           <RxHamburgerMenu />
         </div>
       </div>
-      <NavPopMenu menu={menu} handleMenuClick={handleMenuClick} />
+      <NavPopMenu menu={menu} setMenu={setMenu} handleMenuClick={handleMenuClick} />
     </div>
   )
 }

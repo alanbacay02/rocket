@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import { AiOutlineInfoCircle, AiOutlineClose, AiOutlineQuestionCircle } from 'react-icons/ai'
 import { BiBuildings, BiPhone } from 'react-icons/bi'
 import { BsStack } from 'react-icons/bs'
@@ -29,8 +29,39 @@ const MENU_ITEMS = [
 ]
 
 const NavPopMenu = (props) => {
+  const menuRef = useRef()
+
+  useEffect(() => {
+    // Gets the current properties of `menuRef` and assigns it to `popoutMenu`.
+    const popoutMenu = menuRef.current
+    // Checks `props.menu` state if its true.
+    if(props.menu) {
+      document.body.classList.add('no-scroll') // Adds the `.no-scroll` class to body.
+      popoutMenu.style.overflow = 'auto' // Sets `popoutMenu` overflow style to auto.
+    } else {
+      document.body.classList.remove('no-scroll') // Removes the `.no-scroll` class in body.
+      popoutMenu.style.overflow = 'hidden' // Sets `popoutMenu` overflow style to hidden.
+    }
+
+    // Function to handle click events.
+    let handleClick = (e) => {
+      if (!menuRef.current.contains(e.target)) {
+        props.setMenu(false); // Sets state `navMenu` to false when click event is outside `menuRef`.
+      }
+    }
+
+    // Adds event listener for `mousedown` events.
+    document.addEventListener('mousedown', handleClick);
+    // Clean up event listener and remove 'no-scroll' class when component unmounts.
+    return () => {
+      document.removeEventListener('mousedown', handleClick);
+      document.body.classList.remove('no-scroll');
+      popoutMenu.style.overflow = 'hidden';
+    }
+  }, [props]);
+
   return (
-    <div className={`w-[87%] h-screen fixed top-0 bg-background text-white z-50 ${props.menu ? 'right-0' : '-right-[100%] md:hidden'} transition-all duration-500`}>
+    <div ref={menuRef} className={`w-[87%] h-screen fixed top-0 bg-background text-white z-50 ${props.menu ? 'right-0' : '-right-[100%] md:hidden'} transition-all duration-500`}>
       <div className='flex flex-col'>
         <button
          onClick={() => {props.handleMenuClick()}}

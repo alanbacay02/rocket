@@ -16,6 +16,10 @@ body {
   background-color: var(--background);
 }
 
+.no-scroll {
+  overflow: hidden !important;
+}
+
 .hero-button {
   transform: translate(0, 0);
 }
