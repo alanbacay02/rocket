@@ -21,7 +21,7 @@ const CompanyLogosDesktop = () => {
 
 
 const CompanyLogosMobile = () => {
-  const [emblaRef] = useEmblaCarousel()
+  const [emblaRef] = useEmblaCarousel({loop:true, skipSnaps: false, align: 'start', dragFree: true })
 
   return (
     <div className='w-full h-min mx-auto'>
@@ -29,7 +29,7 @@ const CompanyLogosMobile = () => {
         <div className='embla__container flex'>
           {LOGOS.map((item, index) => {
             return (
-              <div key={index} className="embla__slide fill-gray-700 w-fit h-24 mx-auto">{item}</div>
+              <div key={index} className="embla__slide__company fill-gray-700 w-fit h-16 md:h-24 mx-auto">{item}</div>
             )
           })}
         </div>
