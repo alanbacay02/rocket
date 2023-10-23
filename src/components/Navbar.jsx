@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Logo5, Pin } from '../svg-components/SvgLogos'
 import { RxHamburgerMenu } from 'react-icons/rx'
 
@@ -30,6 +30,8 @@ const NAVBAR_ITEMS = [
 ]
 
 const Navbar = () => {
+  const [menu, setMenu] = useState(false)
+
   return (
     <div className='absolute inset-0 h-fit w-full py-4 md:py-6 border-b border-gray-800 z-50'>
       <div className='w-full max-w-[1440px] px-2 sm:px-4 md:px-6 mx-auto flex flex-row justify-between items-center'>
@@ -55,7 +57,7 @@ const Navbar = () => {
             })}
           </ul>
         </div>
-        <div className='md:hidden text-default text-2xl mr-2'>
+        <div className='md:hidden text-default text-2xl mr-2' onClick={() => {setMenu(!menu)}}>
           <RxHamburgerMenu />
         </div>
       </div>
