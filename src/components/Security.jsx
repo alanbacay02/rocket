@@ -22,7 +22,7 @@ const CARD_CONTENT = [
 
 const Security = () => {
   return (
-    <div className='relative w-full bg-[#001c72]'>
+    <div className='relative w-full bg-[#001c72] -z-50'>
       <div className='h-auto'>
         <WaveTop />
       </div>

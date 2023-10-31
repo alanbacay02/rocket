@@ -3,7 +3,7 @@ import PricingCarousel from './PricingCarousel'
 
 const Pricing = () => {
   return (
-    <div className='w-full pb-16'>
+    <div className='w-full -mt-4 pt-4 pb-16 bg-background z-50'>
       <div className='w-full max-w-[1440px] mx-auto'>
         <div className='flex flex-col justify-center items-center mx-6 text-default'>
           <h1 className='font-bold text-4xl mb-7'>Our Plans</h1>
