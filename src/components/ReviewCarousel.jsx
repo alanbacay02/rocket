@@ -58,25 +58,43 @@ const ReviewCard = ({ imgSrc, reviewContent, reviewerName, reviewerOccupation, r
   };
 
   return (
-    <div className='flex flex-col justify-center items-center mx-auto w-[700px] text-white'>
+    <div className='flex flex-col justify-center items-center mx-auto px-4 w-auto max-w-[700px] text-white'>
       <img src={imgSrc} alt='Reviewer_Image' loading='lazy' className='w-36 h-36 rounded-full object-cover mb-3' />
       <div className='flex flex-row text-3xl mb-8'>
         {getStars(rating)}
       </div>
-      <p className='mb-10 text-xl'>{reviewContent}</p>
-      <div className='flex flex-row items-center h-fit gap-4'>
+      <p className='mb-10 text-base xs:text-lg sm:text-xl'>{reviewContent}</p>
+      {/* REVIEWER DETAILS FOR LARGE DEVICES */}
+      <div className='hidden xs:flex flex-row items-center h-fit gap-4'>
         <div className='flex flex-row items-center'>
           <div className='w-11 h-11 mt-2 fill-primary'>
             <Logo5 />
           </div>
-          <h1 className='font-bold text-3xl'>Orion</h1>
+          <h1 className='font-bold text-2xl sm:text-3xl'>Orion</h1>
         </div>
         <div className='w-[2px] h-[60px] bg-primaryText' />
         <div className='flex flex-col'>
-          <h3 className='text-2xl font-bold'>{reviewerName}</h3>
-          <a href='/#' className='font-medium text-lg text-accent hover:underline'>{reviewerOccupation}</a>
+          <h3 className='text-lg xs:text-xl sm:text-2xl font-bold'>{reviewerName}</h3>
+          <a href='/#' className='font-medium text-base sm:text-lg text-accent hover:underline'>{reviewerOccupation}</a>
         </div>
       </div>
+      {/* END OF REVIEWER DETAILS FOR LARGE DEVICES */}
+
+      {/* REVIEWER DETAILS FOR SMALL DEVICES */}
+      <div className='flex xs:hidden flex-col items-center w-full h-fit gap-4'>
+        <div className='flex flex-col text-center'>
+          <h3 className='text-lg xs:text-xl sm:text-2xl font-bold'>{reviewerName}</h3>
+          <a href='/#' className='font-medium text-base sm:text-lg text-accent hover:underline'>{reviewerOccupation}</a>
+        </div>
+        <div className='w-[90%] h-0.5 bg-primaryText' />
+        <div className='flex flex-row items-center'>
+          <div className='w-11 h-11 mt-2 fill-primary'>
+            <Logo5 />
+          </div>
+          <h1 className='font-bold text-2xl sm:text-3xl'>Orion</h1>
+        </div>
+      </div>
+      {/* END OF REVIEWER DETAILS FOR SMALL DEVICES */}
     </div>
   )
 }
@@ -87,10 +105,10 @@ const ReviewCarousel = () => {
 
   return (
     <div className='flex flex-row items-center justify-center gap-8'>
-      <button className='review-carousel-prev text-primaryText text-7xl active:scale-90' onClick={() => {emblaApi.scrollPrev()}}>
+      <button className='hidden md:block review-carousel-prev text-primaryText text-7xl active:scale-90' onClick={() => {emblaApi.scrollPrev()}}>
         <BsChevronLeft />
       </button>
-      <div className="embla overflow-hidden max-w-[800px] py-14" ref={emblaRef}>
+      <div className="embla overflow-hidden w-fit max-w-[800px] py-14" ref={emblaRef}>
         <div className="embla__container flex">
           {REVIEW_CONTENT.map((item, index) => {
             return (
@@ -107,7 +125,7 @@ const ReviewCarousel = () => {
           })}
         </div>
       </div>
-      <button className='review-carousel-next text-primaryText text-7xl active:scale-90' onClick={() => {emblaApi.scrollNext()}}>
+      <button className='hidden md:block review-carousel-next text-primaryText text-7xl active:scale-90' onClick={() => {emblaApi.scrollNext()}}>
         <BsChevronRight />
       </button>
     </div>
