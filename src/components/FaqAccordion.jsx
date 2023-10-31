@@ -34,7 +34,7 @@ const FaqAccordion = ({ content }) => {
         {content.map((item, index) => {
           return (
             <AccordionItem key={index} header={item.question}>
-              <p className='text-xl leading-10 px-3'>{item.answer}</p>
+              <p className='text-base sm:text-lg md:text-xl leading-8 md:leading-10 px-3'>{item.answer}</p>
             </AccordionItem>
           )
         })}
