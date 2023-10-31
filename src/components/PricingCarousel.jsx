@@ -156,7 +156,7 @@ const PACKAGE_TITLES = [
     key: 'agencyActive'
   },
   {
-    title: 'CUSTOM / ENTERPRISE',
+    title: 'ENTERPRISE',
     key: 'customActive'
   },
 ]
@@ -166,7 +166,7 @@ const Cards = ({ cardContentObj }) => {
     <div className='w-full h-min'>
 
     {/* START OF GRID CONTAINER */}
-      <div className='grid grid-cols-3 gap-10 items-center px-6'>
+      <div className='grid lg:grid-cols-3 gap-10 items-center mx-6'>
         {/* START OF CARDS */}
         {cardContentObj.map((item, index) => {
           return (
@@ -174,15 +174,15 @@ const Cards = ({ cardContentObj }) => {
               key={index}
               className={`flex flex-col py-10 px-4 mx-auto h-min max-w-[450px] text-center rounded-xl bg-secondary text-default ${item.highlighted ? 'highlighted-pricing-card py-12' : ''}`}
             >
-              <h2 className={`font-medium text-3xl mb-10 ${item.highlighted ? 'text-primaryText' :  ''}`}>
+              <h2 className={`font-medium text-xl sm:text-2xl md:text-3xl mb-5 xs:mb-10 ${item.highlighted ? 'text-primaryText' :  ''}`}>
                 {item.packageName}
               </h2>
-              <h1 className={`font-bold text-7xl ${item.highlighted ? 'text-primaryText' : ''}`}>{item.price}</h1>
-              <p className='mb-5'>Per Month</p>
-              <p className='px-7 mb-5'>{item.description}</p>
+              <h1 className={`font-bold text-5xl sm:text-6xl md:text-7xl ${item.highlighted ? 'text-primaryText' : ''}`}>{item.price}</h1>
+              <p className='mb-3 xs:mb-5 text-sm sm:text-base'>Per Month</p>
+              <p className='px-3 xs:px-7 mb-5'>{item.description}</p>
               <div className='w-full h-[1px] mb-5 bg-gray-600' />
               {/* Start of Package Features */}
-              <div  className='flex flex-col px-8 text-left'>
+              <div  className='flex flex-col px-2 xs:px-8 text-left'>
                 {item.features.map((feature, index) => {
                   return (
                   <div className='flex flex-row my-2 items-center gap-3'>
@@ -238,13 +238,13 @@ const PricingCarouselControls = ({ onControlClick }) => {
   }
 
   return (
-    <div className='relative flex flex-row justify-center items-center gap-36 mt-12 mx-6 pb-5 text-default font-bold text-lg'>
+    <div className='relative flex flex-row justify-center items-center gap-3 xs:gap-12 sm:gap-20 md:gap-36 pt-12 mx-4 pb-5 text-default font-bold text-sm md:text-lg'>
     {PACKAGE_TITLES.map((item, index) => {
       let isSelected = packageState[item.key]
       return (
-        <div key={index} className='relative hover:cursor-pointer' onClick={() => {handleClick(item.key); onControlClick(index);}}>
+        <div key={index} className='relative h-auto hover:cursor-pointer' onClick={() => {handleClick(item.key); onControlClick(index);}}>
           <h2 className={`${isSelected ? 'text-primaryText' : ''} transition-colors duration-600 select-none`}>{item.title}</h2>
-          <div className={`absolute -bottom-5 h-1 w-full bg-primaryText transition-opacity duration-600 ${isSelected ? 'opacity-100' : 'opacity-0'}`} />
+          <div className={`absolute -bottom-full md:-bottom-5 h-1 w-full bg-primaryText transition-opacity duration-600 ${isSelected ? 'opacity-100' : 'opacity-0'}`} />
         </div>
       )
     })}
