@@ -265,7 +265,7 @@ const PricingCarousel = () => {
 
       <PricingCarouselControls onControlClick={onControlClick} />
 
-      <div className="embla overflow-hidden py-14" ref={emblaRef}>
+      <div className="embla overflow-hidden pt-14 md:py-14" ref={emblaRef}>
         <div className="embla__container flex">
           <div className="embla__slide">
             <Cards cardContentObj={STANDARD_CONTENT} />

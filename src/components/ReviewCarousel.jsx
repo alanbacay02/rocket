@@ -108,7 +108,7 @@ const ReviewCarousel = () => {
       <button className='hidden md:block review-carousel-prev text-primaryText text-7xl active:scale-90' onClick={() => {emblaApi.scrollPrev()}}>
         <BsChevronLeft />
       </button>
-      <div className="embla overflow-hidden w-fit h-fit max-w-[800px] py-14" ref={emblaRef}>
+      <div className="embla overflow-hidden w-fit h-fit max-w-[800px] pt-14 pb-8 md:py-14" ref={emblaRef}>
         <div className="embla__container flex">
           {REVIEW_CONTENT.map((item, index) => {
             return (
