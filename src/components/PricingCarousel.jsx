@@ -174,11 +174,11 @@ const Cards = ({ cardContentObj }) => {
               key={index}
               className={`flex flex-col py-10 px-4 mx-auto h-min max-w-[450px] text-center rounded-xl bg-secondary text-default ${item.highlighted ? 'highlighted-pricing-card py-12' : ''}`}
             >
-              <h2 className={`font-medium text-xl sm:text-2xl md:text-3xl mb-5 xs:mb-10 ${item.highlighted ? 'text-primaryText' :  ''}`}>
+              <h2 className={`font-medium text-xl xs:text-2xl sm:text-3xl mb-5 xs:mb-10 ${item.highlighted ? 'text-primaryText' :  ''}`}>
                 {item.packageName}
               </h2>
-              <h1 className={`font-bold text-5xl sm:text-6xl md:text-7xl ${item.highlighted ? 'text-primaryText' : ''}`}>{item.price}</h1>
-              <p className='mb-3 xs:mb-5 text-sm sm:text-base'>Per Month</p>
+              <h1 className={`font-bold text-5xl xs:text-6xl sm:text-7xl ${item.highlighted ? 'text-primaryText' : ''}`}>{item.price}</h1>
+              <p className='mb-3 xs:mb-5 text-sm xs:text-base'>Per Month</p>
               <p className='px-3 xs:px-7 mb-5'>{item.description}</p>
               <div className='w-full h-[1px] mb-5 bg-gray-600' />
               {/* Start of Package Features */}
