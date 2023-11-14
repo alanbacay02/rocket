@@ -31,7 +31,7 @@ const FAQ_CONTENT = [
 
 const Faq = () => {
   return (
-    <div className='w-full py-16'>
+    <div className='w-full pt-10 pb-14 sm:py-14'>
       <div className='w-full max-w-[1440px] mx-auto'>
         <div className='grid md:grid-cols-3 px-6'>
           <div className='mb-10 mx-auto md:mx-0 md:col-span-1 md:mb-0 md:mt-4 md:ml-4 text-center md:text-left text-default'>

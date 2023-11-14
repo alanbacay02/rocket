@@ -104,7 +104,7 @@ const ReviewCarousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, watchDrag: true, })
 
   return (
-    <div className='flex flex-row items-center justify-center gap-8 py-8 sm:py-11 md:py-14'>
+    <div className='flex flex-row items-center justify-center gap-8 pt-8 sm:pt-11 md:py-14'>
       <button className='hidden md:block review-carousel-prev text-primaryText text-7xl active:scale-90' onClick={() => {emblaApi.scrollPrev()}}>
         <BsChevronLeft />
       </button>
