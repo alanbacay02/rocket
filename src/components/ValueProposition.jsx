@@ -56,10 +56,10 @@ const ValueProposition = () => {
       <div className='w-full max-w-[1440px] px-4 mx-auto'>
         {/* START OF FLEX CONTAINER */}
         <div className='flex flex-col justify-center items-center text-default'>
-          <h1 className='font-bold text-4xl text-center'>Why Choose Orion</h1>
+          <h1 className='font-bold text-2xl sm:text-3xl md:text-4xl text-center'>Why Choose Orion</h1>
           {/* START OF GRID */}
           <motion.div
-            className='grid sm:grid-cols-2 lg:grid-cols-3 gap-20 mt-20 overflow-hidden'
+            className='grid sm:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-20 mt-12 md:mt-20 overflow-hidden'
             ref={containerRef}
             variants={containerVariants}
             initial='hidden'

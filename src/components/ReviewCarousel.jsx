@@ -59,11 +59,11 @@ const ReviewCard = ({ imgSrc, reviewContent, reviewerName, reviewerOccupation, r
 
   return (
     <div className='flex flex-col justify-center items-center mx-auto px-4 w-auto max-w-[700px] text-white'>
-      <img src={imgSrc} alt='Reviewer_Image' loading='lazy' className='w-36 h-36 rounded-full object-cover mb-3' />
-      <div className='flex flex-row text-3xl mb-8'>
+      <img src={imgSrc} alt='Reviewer_Image' loading='lazy' className='w-28 h-28 md:w-36 md:h-36 rounded-full object-cover mb-3' />
+      <div className='flex flex-row text-xl sm:text-2xl md:text-3xl mb-8'>
         {getStars(rating)}
       </div>
-      <p className='mb-10 text-base xs:text-lg sm:text-xl'>{reviewContent}</p>
+      <p className='mb-10 text-base sm:text-lg md:text-xl max-w-[500px] text-center sm:max-w-none sm:text-left'>{reviewContent}</p>
       {/* REVIEWER DETAILS FOR LARGE DEVICES */}
       <div className='hidden xs:flex flex-row items-center h-fit gap-4'>
         <div className='flex flex-row items-center'>
@@ -86,7 +86,7 @@ const ReviewCard = ({ imgSrc, reviewContent, reviewerName, reviewerOccupation, r
           <h3 className='text-lg xs:text-xl sm:text-2xl font-bold'>{reviewerName}</h3>
           <a href='/#' className='font-medium text-base sm:text-lg text-accent hover:underline'>{reviewerOccupation}</a>
         </div>
-        <div className='w-[90%] h-0.5 bg-primaryText' />
+        <div className='w-[80%] h-0.5 bg-primaryText' />
         <div className='flex flex-row items-center'>
           <div className='w-11 h-11 mt-2 fill-primary'>
             <Logo5 />
@@ -104,11 +104,11 @@ const ReviewCarousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, watchDrag: true, })
 
   return (
-    <div className='flex flex-row items-center justify-center gap-8'>
+    <div className='flex flex-row items-center justify-center gap-8 py-8 sm:py-11 md:py-14'>
       <button className='hidden md:block review-carousel-prev text-primaryText text-7xl active:scale-90' onClick={() => {emblaApi.scrollPrev()}}>
         <BsChevronLeft />
       </button>
-      <div className="embla overflow-hidden w-fit h-fit max-w-[800px] pt-14 pb-8 md:py-14" ref={emblaRef}>
+      <div className="embla overflow-hidden w-fit h-fit max-w-[800px]" ref={emblaRef}>
         <div className="embla__container flex">
           {REVIEW_CONTENT.map((item, index) => {
             return (
