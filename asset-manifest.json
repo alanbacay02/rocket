@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/rocket/static/css/main.1fa823cf.css",
+    "main.js": "/rocket/static/js/main.8eab69f7.js",
+    "static/media/HeroBackground.jpg": "/rocket/static/media/HeroBackground.99204b99bb760b0e56ae.jpg",
+    "static/media/James_Rev_Img.png": "/rocket/static/media/James_Rev_Img.3e2c4efc6854ce71fad3.png",
+    "static/media/Allan_Rev_Img.png": "/rocket/static/media/Allan_Rev_Img.33c9f17f01944cfb249d.png",
+    "static/media/Amanda_Rev_Img.png": "/rocket/static/media/Amanda_Rev_Img.ef1ca721f303ddcc90ef.png",
+    "static/media/John_Rev_Img.png": "/rocket/static/media/John_Rev_Img.cce2a7200f721f51e286.png",
+    "static/media/dashboard_hero.png": "/rocket/static/media/dashboard_hero.3b368dbabed7f9583be1.png",
+    "static/media/securityCloud3.png": "/rocket/static/media/securityCloud3.d7d03698c882e67558ee.png",
+    "static/media/magGlass.png": "/rocket/static/media/magGlass.c5cf994a67e50da840eb.png",
+    "static/media/wristWatch.png": "/rocket/static/media/wristWatch.ef45bb40126edf531b89.png",
+    "static/media/cloudSecurity.png": "/rocket/static/media/cloudSecurity.9ac03315f8195564f7aa.png",
+    "index.html": "/rocket/index.html",
+    "main.1fa823cf.css.map": "/rocket/static/css/main.1fa823cf.css.map",
+    "main.8eab69f7.js.map": "/rocket/static/js/main.8eab69f7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1fa823cf.css",
+    "static/js/main.8eab69f7.js"
+  ]
+}
