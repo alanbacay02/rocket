@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import { DataUsageSvg, DataManagementSvg, DataNetworkingSvg } from '../svg-components/SvgLogos'
+import { motion, useAnimation, useInView } from 'framer-motion'
 
 const CARD_CONTENT = [
   {
@@ -19,7 +20,37 @@ const CARD_CONTENT = [
   },
 ]
 
+const globalTransitionDelay = 0.1
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 100 },
+  visible: { opacity: 100, y: 0}
+}
+
+const containerVariants = {
+  visible: {
+    delay: globalTransitionDelay, // Add a short delay before triggering this transition
+    transition: { 
+      when: "beforeChildren", // Trigger children animations after transition
+      staggerChildren: 0.12, // Step interval for staggering
+    }
+  }
+}
+
 const ValueProposition = () => {
+  const containerRef = useRef()
+  const isInView = useInView(containerRef)
+
+  const mainControls = useAnimation()
+
+  useEffect(() => {
+    if (isInView) {
+      mainControls.start('visible')
+    } else {
+      mainControls.start('hidden')
+    }
+  }, [isInView, mainControls])
+
   return (
     <div className='relative w-full py-16'>
       <div className='w-full max-w-[1440px] px-4 mx-auto'>
@@ -27,10 +58,19 @@ const ValueProposition = () => {
         <div className='flex flex-col justify-center items-center text-default'>
           <h1 className='font-bold text-4xl text-center'>Why Choose Orion</h1>
           {/* START OF GRID */}
-          <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-20 mt-20'>
+          <motion.div
+            className='grid sm:grid-cols-2 lg:grid-cols-3 gap-20 mt-20 overflow-hidden'
+            ref={containerRef}
+            variants={containerVariants}
+            initial='hidden'
+            animate={mainControls}
+          >
             {CARD_CONTENT.map((item, index) => {
               return (
-                <div className={`flex flex-col items-center h-full rounded-2xl bg-secondary px-4 md:px-12 py-10 -z-50 ${index === CARD_CONTENT.length - 1 ? 'sm:col-span-2 lg:col-span-1 sm:mx-auto lg:mx-0' : ''} max-w-[300px] sm:max-w-[330px] md:max-w-[400px] lg:w-auto`}>
+                <motion.div 
+                  className={`flex flex-col items-center h-full rounded-2xl bg-secondary px-4 md:px-12 py-10 -z-50 ${index === CARD_CONTENT.length - 1 ? 'sm:col-span-2 lg:col-span-1 sm:mx-auto lg:mx-0' : ''} max-w-[300px] sm:max-w-[330px] md:max-w-[400px] lg:w-auto`}
+                  variants={cardVariants}
+                >
                   <div className='h-auto w-32 sm:w-44 md:w-56'>
                     {item.cardSvgLogo}
                   </div>
@@ -38,10 +78,10 @@ const ValueProposition = () => {
                     <h2 className='card-h2-title relative font-medium text-default text-lg sm:text-xl md:text-2xl mt-8 mb-7 z-50'>{item.cardTitle}</h2>
                   </div>
                   <p className='text-default md:text-lg leading-9'>{item.cardParagraph}</p>
-                </div>
+                </motion.div>
               )
             })}
-          </div>
+          </motion.div>
           {/* END OF GRID */}
         </div>
         {/* END OF FLEX CONTAINER */}

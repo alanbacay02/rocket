@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { FaArrowRightLong } from 'react-icons/fa6'
 import { ImCheckmark } from 'react-icons/im'
 import useEmblaCarousel from 'embla-carousel-react'
+import { motion, useAnimation, useInView } from 'framer-motion'
 
 const STANDARD_CONTENT = [
   {
@@ -161,6 +162,23 @@ const PACKAGE_TITLES = [
   },
 ]
 
+const globalTransitionDelay = 0.2
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 100 },
+  visible: { opacity: 100, y: 0 }
+}
+
+const containerVariants = {
+  visible: {
+    delay: globalTransitionDelay, // Add a short delay before triggering this transition
+    transition: { 
+      when: "beforeChildren", // Trigger children animations after transition
+      staggerChildren: 0.12, // Step interval for staggering
+    }
+  }
+}
+
 const Cards = ({ cardContentObj }) => {
   return (
     <div className='w-full h-min'>
@@ -170,9 +188,10 @@ const Cards = ({ cardContentObj }) => {
         {/* START OF CARDS */}
         {cardContentObj.map((item, index) => {
           return (
-            <div 
+            <motion.div 
               key={index}
               className={`flex flex-col py-10 px-4 mx-auto h-min max-w-[450px] text-center rounded-xl bg-secondary text-default ${item.highlighted ? 'highlighted-pricing-card py-12' : ''}`}
+              variants={cardVariants}
             >
               <h2 className={`font-medium text-xl xs:text-2xl sm:text-3xl mb-5 xs:mb-10 ${item.highlighted ? 'text-primaryText' :  ''}`}>
                 {item.packageName}
@@ -207,7 +226,7 @@ const Cards = ({ cardContentObj }) => {
                 className='w-fit mt-10 mx-auto px-8 py-3 font-medium text-white bg-primary hover:bg-blue-900 hover:scale-105 transition-all duration-200'>
                 {item.buttonContent}
               </button>
-            </div>
+            </motion.div>
           )
         })}
         {/* END OF CARDS */}
@@ -255,13 +274,30 @@ const PricingCarouselControls = ({ onControlClick }) => {
 
 const PricingCarousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, watchDrag: false, })
+  const containerRef = useRef()
+  const isInView = useInView(containerRef)
+  const mainControls = useAnimation()
 
   const onControlClick = (index) => {
     emblaApi.scrollTo(index)
   }
 
+  useEffect(() => {
+    if (isInView) {
+      mainControls.start('visible')
+    } else {
+      mainControls.start('hidden')
+    }
+  }, [isInView, mainControls])
+
   return (
-    <div className=''>
+    <motion.div 
+      className='overflow-hidden'
+      ref={containerRef}
+      variants={containerVariants}
+      initial='hidden'
+      animate={mainControls}
+    >
 
       <PricingCarouselControls onControlClick={onControlClick} />
 
@@ -278,7 +314,7 @@ const PricingCarousel = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
