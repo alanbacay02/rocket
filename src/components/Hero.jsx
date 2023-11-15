@@ -92,7 +92,7 @@ const Hero = () => {
         <img
           src={HeroBg}
           alt='Hero_Background'
-          className='absolute inset-0 w-full h-full -z-50 object-cover'
+          className='absolute inset-0 w-full h-full -z-50 object-cover -translate-y-1'
           loading='lazy'
         />
 
