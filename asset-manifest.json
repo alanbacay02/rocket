@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/rocket/static/css/main.1fa823cf.css",
-    "main.js": "/rocket/static/js/main.8eab69f7.js",
+    "main.css": "/rocket/static/css/main.0de76bcb.css",
+    "main.js": "/rocket/static/js/main.22bd70d9.js",
     "static/media/HeroBackground.jpg": "/rocket/static/media/HeroBackground.99204b99bb760b0e56ae.jpg",
     "static/media/James_Rev_Img.png": "/rocket/static/media/James_Rev_Img.3e2c4efc6854ce71fad3.png",
     "static/media/Allan_Rev_Img.png": "/rocket/static/media/Allan_Rev_Img.33c9f17f01944cfb249d.png",
@@ -13,11 +13,11 @@
     "static/media/wristWatch.png": "/rocket/static/media/wristWatch.ef45bb40126edf531b89.png",
     "static/media/cloudSecurity.png": "/rocket/static/media/cloudSecurity.9ac03315f8195564f7aa.png",
     "index.html": "/rocket/index.html",
-    "main.1fa823cf.css.map": "/rocket/static/css/main.1fa823cf.css.map",
-    "main.8eab69f7.js.map": "/rocket/static/js/main.8eab69f7.js.map"
+    "main.0de76bcb.css.map": "/rocket/static/css/main.0de76bcb.css.map",
+    "main.22bd70d9.js.map": "/rocket/static/js/main.22bd70d9.js.map"
   },
   "entrypoints": [
-    "static/css/main.1fa823cf.css",
-    "static/js/main.8eab69f7.js"
+    "static/css/main.0de76bcb.css",
+    "static/js/main.22bd70d9.js"
   ]
 }
