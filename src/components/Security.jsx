@@ -53,8 +53,8 @@ const Security = () => {
 
 
   return (
-    <div className='relative w-full bg-[#001c72] -z-50'>
-      <div className='h-auto'>
+    <div className='relative w-full bg-[#001c72]'>
+      <div className='h-auto -translate-y-1'>
         <WaveTop />
       </div>
 
@@ -94,7 +94,7 @@ const Security = () => {
         </div>
       </div>
 
-      <div>
+      <div className='h-auto translate-y-1'>
         <WaveBottom />
       </div>
     </div>
