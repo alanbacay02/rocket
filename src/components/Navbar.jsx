@@ -53,7 +53,7 @@ const Navbar = () => {
             {NAVBAR_ITEMS.map((item, index) => {
               return (
                 <li className='relative group flex flex-row items-center gap-1 pl-6'>
-                  <div className='absolute -left-1.5 bottom-[-40px] group-hover:-bottom-2.5 fill-accent transition-all duration-300 w-10 h-10'>
+                  <div className='absolute -left-1.5 -bottom-[50px] group-hover:-bottom-2.5 fill-accent transition-all duration-300 w-10 h-10'>
                     <Pin />
                   </div>
                   <a href={item.itemHref}>{item.itemTitle}</a>
