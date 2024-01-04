@@ -59,23 +59,23 @@ const ReviewCard = ({ imgSrc, reviewContent, reviewerName, reviewerOccupation, r
 
   return (
     <div className='flex flex-col justify-center items-center mx-auto px-4 w-auto max-w-[700px] text-white'>
-      <img src={imgSrc} alt='Reviewer_Image' loading='lazy' className='w-28 h-28 md:w-36 md:h-36 rounded-full object-cover mb-3' />
-      <div className='flex flex-row text-xl sm:text-2xl md:text-3xl mb-8'>
+      <img src={imgSrc} alt='Reviewer_Image' loading='lazy' className='w-auto h-16 md:h-24 rounded-full object-cover mb-3' />
+      <div className='flex flex-row text-lg sm:text-xl mb-8'>
         {getStars(rating)}
       </div>
-      <p className='mb-10 text-base sm:text-lg md:text-xl max-w-[500px] text-center sm:max-w-none sm:text-left'>{reviewContent}</p>
+      <p className='mb-10 text-xs sm:text-sm max-w-[500px] text-center sm:max-w-none sm:text-left'>{reviewContent}</p>
       {/* REVIEWER DETAILS FOR LARGE DEVICES */}
       <div className='hidden xs:flex flex-row items-center h-fit gap-4'>
-        <div className='flex flex-row items-center'>
-          <div className='w-11 h-11 mt-2 fill-primary'>
+        <div className='flex flex-row gap-1.5 items-center'>
+          <div className='w-auto h-8 mt-2 fill-primary'>
             <Logo5 />
           </div>
-          <h1 className='font-bold text-2xl sm:text-3xl'>Orion</h1>
+          <h1 className='font-bold text-base sm:text-lg'>Orion</h1>
         </div>
         <div className='w-[2px] h-[60px] bg-primaryText' />
         <div className='flex flex-col'>
-          <h3 className='text-lg xs:text-xl sm:text-2xl font-bold'>{reviewerName}</h3>
-          <a href='/#' className='font-medium text-base sm:text-lg text-accent hover:underline'>{reviewerOccupation}</a>
+          <h3 className='text-sm sm:text-base font-bold'>{reviewerName}</h3>
+          <a href='/#' className='font-medium text-xs sm:text-sm text-accent hover:underline'>{reviewerOccupation}</a>
         </div>
       </div>
       {/* END OF REVIEWER DETAILS FOR LARGE DEVICES */}
@@ -104,8 +104,8 @@ const ReviewCarousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, watchDrag: true, })
 
   return (
-    <div className='flex flex-row items-center justify-center gap-8 pt-8 sm:pt-11 md:py-14'>
-      <button className='hidden md:block review-carousel-prev text-primaryText text-7xl active:scale-90' onClick={() => {emblaApi.scrollPrev()}}>
+    <div className='flex flex-row items-center justify-center gap-6 pt-8 sm:pt-11 md:py-14'>
+      <button className='hidden md:block review-carousel-prev text-primaryText text-5xl active:scale-90' onClick={() => {emblaApi.scrollPrev()}}>
         <BsChevronLeft />
       </button>
       <div className="embla overflow-hidden w-fit h-fit max-w-[800px]" ref={emblaRef}>
@@ -125,7 +125,7 @@ const ReviewCarousel = () => {
           })}
         </div>
       </div>
-      <button className='hidden md:block review-carousel-next text-primaryText text-7xl active:scale-90' onClick={() => {emblaApi.scrollNext()}}>
+      <button className='hidden md:block review-carousel-next text-primaryText text-5xl active:scale-90' onClick={() => {emblaApi.scrollNext()}}>
         <BsChevronRight />
       </button>
     </div>

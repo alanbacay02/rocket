@@ -32,11 +32,11 @@ const FAQ_CONTENT = [
 const Faq = () => {
   return (
     <div className='w-full pt-10 pb-14 sm:py-14'>
-      <div className='w-full max-w-[1440px] mx-auto'>
-        <div className='grid md:grid-cols-3 px-6'>
+      <div className='w-full max-w-[1200px] mx-auto'>
+        <div className='grid md:grid-cols-3 px-4'>
           <div className='mb-10 mx-auto md:mx-0 md:col-span-1 md:mb-0 md:mt-4 md:ml-4 text-center md:text-left text-default'>
-            <h1 className='text-4xl sm:text-5xl md:text-6xl font-bold mb-4'>FAQ</h1>
-            <p className='text-base sm:text-lg md:pr-14 max-w-[300px] sm:max-w-none'>Explore our Frequently Asked Questions to find answers to common queries.</p>
+            <h1 className='text-3xl sm:text-4xl font-bold mb-4'>FAQ</h1>
+            <p className='text-sm sm:text-base md:pr-14 max-w-[300px] sm:max-w-none'>Explore our Frequently Asked Questions to find answers to common queries.</p>
           </div>
           <div className='md:col-span-2 text-default'>
             <FaqAccordion content={FAQ_CONTENT} />

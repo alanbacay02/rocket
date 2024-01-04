@@ -12,9 +12,7 @@ const STANDARD_CONTENT = [
     features: [
       'Lorem ipsum dolor sit amet.',
       'Lorem ipsum dolor sit amet consect.',
-      'Lorem ipsum dolor sit amet consectetur.',
-      'Lorem ipsum dolor sit.',
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, corporis.'
+      'Lorem ipsum dolor sit amet consectetur.'
     ],
     highlighted: false,
     buttonContent: 'Get a Free Trial'
@@ -26,9 +24,7 @@ const STANDARD_CONTENT = [
     features: [
       'Lorem ipsum dolor sit amet.',
       'Lorem ipsum dolor sit amet consect.',
-      'Lorem ipsum dolor sit amet consectetur.',
-      'Lorem ipsum dolor sit.',
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, corporis.'
+      'Lorem ipsum dolor sit amet consectetur.'
     ],
     highlighted: true,
     buttonContent: 'Get a Free Trial'
@@ -40,9 +36,7 @@ const STANDARD_CONTENT = [
     features: [
       'Lorem ipsum dolor sit amet.',
       'Lorem ipsum dolor sit amet consect.',
-      'Lorem ipsum dolor sit amet consectetur.',
-      'Lorem ipsum dolor sit.',
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, corporis.'
+      'Lorem ipsum dolor sit amet consectetur.'
     ],
     highlighted: false,
     buttonContent: 'Get a Free Trial'
@@ -58,8 +52,7 @@ const AGENCY_CONTENT = [
       'Lorem ipsum dolor sit amet.',
       'Lorem ipsum dolor sit amet consect.',
       'Lorem ipsum dolor sit amet consectetur.',
-      'Lorem ipsum dolor sit.',
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, corporis.'
+      'Lorem ipsum dolor sit.'
     ],
     highlighted: false,
     buttonContent: 'Plan Now'
@@ -72,8 +65,7 @@ const AGENCY_CONTENT = [
       'Lorem ipsum dolor sit amet.',
       'Lorem ipsum dolor sit amet consect.',
       'Lorem ipsum dolor sit amet consectetur.',
-      'Lorem ipsum dolor sit.',
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, corporis.'
+      'Lorem ipsum dolor sit.'
     ],
     highlighted: true,
     buttonContent: 'Plan Now'
@@ -86,8 +78,7 @@ const AGENCY_CONTENT = [
       'Lorem ipsum dolor sit amet.',
       'Lorem ipsum dolor sit amet consect.',
       'Lorem ipsum dolor sit amet consectetur.',
-      'Lorem ipsum dolor sit.',
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, corporis.'
+      'Lorem ipsum dolor sit.'
     ],
     highlighted: false,
     buttonContent: 'Plan Now'
@@ -103,8 +94,7 @@ const CUSTOM_CONTENT = [
       'Lorem ipsum dolor sit amet.',
       'Lorem ipsum dolor sit amet consect.',
       'Lorem ipsum dolor sit amet consectetur.',
-      'Lorem ipsum dolor sit.',
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, corporis.'
+      'Lorem ipsum dolor sit.'
     ],
     highlighted: false,
     buttonContent: 'Plan Now'
@@ -117,8 +107,7 @@ const CUSTOM_CONTENT = [
       'Lorem ipsum dolor sit amet.',
       'Lorem ipsum dolor sit amet consect.',
       'Lorem ipsum dolor sit amet consectetur.',
-      'Lorem ipsum dolor sit.',
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, corporis.'
+      'Lorem ipsum dolor sit.'
     ],
     highlighted: false,
     buttonContent: 'Plan Now'
@@ -131,8 +120,7 @@ const CUSTOM_CONTENT = [
       'Lorem ipsum dolor sit amet.',
       'Lorem ipsum dolor sit amet consect.',
       'Lorem ipsum dolor sit amet consectetur.',
-      'Lorem ipsum dolor sit.',
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, corporis.'
+      'Lorem ipsum dolor sit.'
     ],
     highlighted: true,
     buttonContent: 'Get a Quote'
@@ -184,46 +172,51 @@ const Cards = ({ cardContentObj }) => {
     <div className='w-full h-min'>
 
     {/* START OF GRID CONTAINER */}
-      <div className='grid lg:grid-cols-3 gap-10 items-center mx-6'>
+      <div className='grid lg:grid-cols-3 gap-6 items-center mx-6'>
         {/* START OF CARDS */}
         {cardContentObj.map((item, index) => {
           return (
             <motion.div 
               key={index}
-              className={`flex flex-col py-10 px-4 mx-auto h-min max-w-[450px] text-center rounded-xl bg-secondary text-default ${item.highlighted ? 'highlighted-pricing-card py-12' : ''}`}
+              className={`flex flex-col py-5 px-3 mx-auto h-min max-w-[350px] text-center rounded-xl bg-secondary text-default ${item.highlighted ? 'highlighted-pricing-card py-12' : ''}`}
               variants={cardVariants}
             >
-              <h2 className={`font-medium text-xl xs:text-2xl sm:text-3xl mb-5 xs:mb-10 ${item.highlighted ? 'text-primaryText' :  ''}`}>
+              <h2 className={`font-medium text-base xs:text-lg sm:text-xl mb-4 ${item.highlighted ? 'text-primaryText' :  ''}`}>
                 {item.packageName}
               </h2>
-              <h1 className={`font-bold text-5xl xs:text-6xl sm:text-7xl ${item.highlighted ? 'text-primaryText' : ''}`}>{item.price}</h1>
-              <p className='mb-3 xs:mb-5 text-sm xs:text-base'>Per Month</p>
-              <p className='px-3 xs:px-7 mb-5'>{item.description}</p>
-              <div className='w-full h-[1px] mb-5 bg-gray-600' />
+              <h1 className={`font-bold text-2xl xs:text-3xl sm:text-4xl ${item.highlighted ? 'text-primaryText' : ''}`}>{item.price}</h1>
+              <p className='mb-3 text-xs sm:text-sm'>Per Month</p>
+              <p className='text-xs sm:text-sm sm:px-6 mb-3'>{item.description}</p>
+              <div className='w-full h-[1px] mb-3 bg-gray-600' />
               {/* Start of Package Features */}
-              <div  className='flex flex-col px-2 xs:px-8 text-left'>
+              <div  className='flex flex-col px-2 text-left'>
                 {item.features.map((feature, index) => {
                   return (
-                  <div className='flex flex-row my-2 items-center gap-3'>
-                    <div className='text-lg text-primaryText'>
+                  <div className='flex flex-row my-1.5 items-center gap-3'>
+                    <div className='text-sm sm:text-base text-primaryText'>
                       <ImCheckmark />
                     </div>
-                    <p key={index}>{feature}</p>
+                    <p
+                      key={index}
+                      className='text-xs sm:text-sm'
+                    >{feature}</p>
                   </div>
                   )
                 })}
-                <a href='/#' className='flex flex-row items-center gap-1.5 mt-4 ml-1 w-fit font-medium text-accent hover:underline decoration-accent decoration-2 underline-offset-4'>
-                  See all features
-                  <div className='text-xl pt-0.5'>
+                <a href='/#' className='flex flex-row items-center gap-1.5 mt-2 ml-1 w-fit font-medium text-accent hover:underline decoration-accent decoration-2 underline-offset-4 text-xs sm:text-sm'>
+                  See More features
+                  <div className='pt-1'>
                     <FaArrowRightLong />
                   </div>
                 </a>
               </div>
               {/* End of Package Features */}
-              <div className='w-full h-[1px] mt-6 bg-gray-600' />
+              <div className='w-full h-[1px] my-3 bg-gray-600' />
+
+              {/* Package Button */}
               <button
                 onClick={() => {}}
-                className='w-fit mt-10 mx-auto px-8 py-3 font-medium text-white bg-primary hover:bg-blue-900 hover:scale-105 transition-all duration-200'>
+                className='w-fit mx-auto mt-1 px-3 py-2 font-medium text-xs sm:text-sm text-white bg-primary hover:bg-blue-900 hover:scale-105 transition-all duration-200'>
                 {item.buttonContent}
               </button>
             </motion.div>
@@ -257,7 +250,7 @@ const PricingCarouselControls = ({ onControlClick }) => {
   }
 
   return (
-    <div className='relative flex flex-row justify-center items-center gap-3 xs:gap-12 sm:gap-20 md:gap-36 pt-12 mx-4 pb-5 text-default font-bold text-sm md:text-lg'>
+    <div className='relative flex flex-row justify-center items-center gap-3 xs:gap-12 sm:gap-20 md:gap-36 pt-12 mx-4 pb-5 text-default font-bold text-xs sm:text-sm'>
     {PACKAGE_TITLES.map((item, index) => {
       let isSelected = packageState[item.key]
       return (

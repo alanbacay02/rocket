@@ -58,7 +58,7 @@ const Security = () => {
         <WaveTop />
       </div>
 
-      <div className='w-full h-fit max-w-[1440px] mx-auto my-14 md:my-0 xl:-mt-28'>
+      <div className='w-full h-fit max-w-[1200px] mx-auto my-14 md:my-0 xl:-mt-12 '>
         <div className='grid lg:grid-cols-2 items-center'>
           <div className='hidden lg:block'>
             <img src={serverImg} alt='serverImg' />
@@ -70,25 +70,25 @@ const Security = () => {
             initial='hidden'
             animate={mainControls}
           >
-            <h2 className='text-xl sm:text-2xl md:text-3xl font-medium text-center lg:text-left'>We Put Security First to Safeguard What Matters Most</h2>
+            <h2 className='text-lg sm:text-xl font-medium text-center lg:text-left'>We Put Security First to Safeguard What Matters Most</h2>
             {CARD_CONTENT.map((item, index) => {
               return (
                 <motion.div
-                  className='w-fit flex flex-col xs:flex-row items-center px-3 md:px-6 py-5 gap-3 bg-[#003097] shadow-xl rounded-xl'
+                  className='w-fit flex flex-col xs:flex-row items-center px-3 md:px-6 py-5 gap-5 bg-[#003097] shadow-xl rounded-xl'
                   variants={cardVariants}
                 >
-                  <div className='h-auto w-20 xs:w-24 md:w-32'>
+                  <div className='h-auto w-20 xs:w-24 md:w-20'>
                     {item.cardIcon}
                   </div>
-                  <p className='text-base sm:text-lg md:text-xl text-center xs:text-left'>
+                  <p className='text-xs sm:text-sm text-center xs:text-left'>
                     {item.cardDesc}
                   </p>
                 </motion.div>
               )
             })}
-            <div className='flex flex-row w-full justify-center lg:justify-start items-center gap-3 md:gap-5 md:pl-2 text-sm sm:text-base md:text-lg lg:text-xl'>
-              <button onClick={() => {}} className='px-3.5 md:px-6 py-2.5 rounded-3xl shadow-xl bg-accent hover:bg-accent/90 transition-colors'>Learn More</button>
-              <button onClick={() => {}} className='px-3.5 md:px-6 py-2.5 rounded-3xl shadow-xl bg-white hover:bg-white/90 text-primary'>Documentation</button>
+            <div className='flex flex-row w-full justify-center lg:justify-start items-center gap-3 md:pl-2 text-xs sm:text-sm'>
+              <button onClick={() => {}} className='px-3.5 md:px-5 py-2.5 rounded-3xl shadow-xl bg-accent hover:bg-accent/90 transition-colors'>Learn More</button>
+              <button onClick={() => {}} className='px-3.5 md:px-5 py-2.5 rounded-3xl shadow-xl bg-white hover:bg-white/90 text-primary'>Documentation</button>
             </div>
           </motion.div>
         </div>

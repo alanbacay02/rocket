@@ -53,10 +53,10 @@ const ValueProposition = () => {
 
   return (
     <div className='relative w-full py-16'>
-      <div className='w-full max-w-[1440px] px-4 mx-auto'>
+      <div className='w-full max-w-[1200px] px-4 mx-auto'>
         {/* START OF FLEX CONTAINER */}
         <div className='flex flex-col justify-center items-center text-default'>
-          <h1 className='font-bold text-2xl sm:text-3xl md:text-4xl text-center'>Why Choose Orion</h1>
+          <h1 className='font-bold text-xl sm:text-2xl text-center'>Why Choose Orion</h1>
           {/* START OF GRID */}
           <motion.div
             className='grid sm:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-20 mt-12 md:mt-20 overflow-hidden'
@@ -68,16 +68,16 @@ const ValueProposition = () => {
             {CARD_CONTENT.map((item, index) => {
               return (
                 <motion.div 
-                  className={`flex flex-col items-center h-full rounded-2xl bg-secondary px-4 md:px-12 py-10 -z-50 ${index === CARD_CONTENT.length - 1 ? 'sm:col-span-2 lg:col-span-1 sm:mx-auto lg:mx-0' : ''} max-w-[300px] sm:max-w-[330px] md:max-w-[400px] lg:w-auto`}
+                  className={`flex flex-col items-center h-full rounded-2xl bg-secondary p-4 md:p-6 -z-50 ${index === CARD_CONTENT.length - 1 ? 'sm:col-span-2 lg:col-span-1 sm:mx-auto lg:mx-0' : ''} max-w-[300px] sm:max-w-[330px] md:max-w-[400px]`}
                   variants={cardVariants}
                 >
-                  <div className='h-auto w-32 sm:w-44 md:w-56'>
+                  <div className='h-auto w-32 sm:w-44'>
                     {item.cardSvgLogo}
                   </div>
                   <div>
-                    <h2 className='card-h2-title relative font-medium text-default text-lg sm:text-xl md:text-2xl mt-8 mb-7 z-50'>{item.cardTitle}</h2>
+                    <h2 className='card-h2-title relative font-medium text-default text-sm sm:text-base mt-8 mb-7 z-50'>{item.cardTitle}</h2>
                   </div>
-                  <p className='text-default md:text-lg leading-9'>{item.cardParagraph}</p>
+                  <p className='text-default text-xs sm:text-sm leading-10 w-fit'>{item.cardParagraph}</p>
                 </motion.div>
               )
             })}

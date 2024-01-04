@@ -10,7 +10,7 @@ const CompanyLogosDesktop = () => {
     <div className='w-full h-min mx-auto grid grid-cols-5 bg-transparent'>
       {LOGOS.map((item,index) => {
         return (
-          <div key={index} className='fill-gray-700 w-fit h-20 mx-auto'>
+          <div key={index} className='fill-gray-700 w-fit h-12 mx-auto'>
             {item}
           </div>
         )
