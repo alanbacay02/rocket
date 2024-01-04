@@ -77,7 +77,7 @@ const Security = () => {
                   className='w-fit flex flex-col xs:flex-row items-center px-3 md:px-6 py-5 gap-5 bg-[#003097] shadow-xl rounded-xl'
                   variants={cardVariants}
                 >
-                  <div className='h-auto w-20 xs:w-24 md:w-20'>
+                  <div className='h-auto w-auto max-w-[55px]'>
                     {item.cardIcon}
                   </div>
                   <p className='text-xs sm:text-sm text-center xs:text-left'>
